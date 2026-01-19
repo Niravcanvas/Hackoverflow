@@ -12,12 +12,6 @@ const SponsorUs = () => {
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const stats = [
-    { number: "500+", label: "Participants", icon: "👥" },
-    { number: "85+", label: "Projects", icon: "💡" },
-    { number: "36", label: "Hours", icon: "⏱️" },
-    { number: "35+", label: "Colleges", icon: "🎓" }
-  ];
 
   const benefits = [
     {
@@ -64,53 +58,6 @@ const SponsorUs = () => {
     }
   ];
 
-  const tiers = [
-    {
-      name: "Co-Powered By",
-      gradient: "linear-gradient(135deg, #FCB216 0%, #E85D24 100%)",
-      features: [
-        "Exclusive naming rights",
-        "Prime logo placement",
-        "Keynote speaking slot",
-        "Dedicated booth space",
-        "Social media spotlight",
-        "Custom workshop opportunity"
-      ]
-    },
-    {
-      name: "Gold Sponsor",
-      gradient: "linear-gradient(135deg, #E85D24 0%, #D91B57 100%)",
-      features: [
-        "Premium logo placement",
-        "Booth space",
-        "Workshop opportunity",
-        "Social media mentions",
-        "Swag distribution",
-        "Talent engagement"
-      ]
-    },
-    {
-      name: "Silver Sponsor",
-      gradient: "linear-gradient(135deg, #D91B57 0%, #63205F 100%)",
-      features: [
-        "Logo placement",
-        "Swag distribution",
-        "Social media features",
-        "Networking access",
-        "Brand visibility"
-      ]
-    },
-    {
-      name: "Bronze Sponsor",
-      gradient: "linear-gradient(135deg, #63205F 0%, #FCB216 100%)",
-      features: [
-        "Logo on website",
-        "Social media mention",
-        "Certificate of sponsorship",
-        "Community recognition"
-      ]
-    }
-  ];
 
   return (
     <section className="sponsor-section">
@@ -519,13 +466,13 @@ const SponsorUs = () => {
         }
       `}</style>
 
-      <div 
-        className="orb-glow orb-1" 
+      <div
+        className="orb-glow orb-1"
         style={{
           transform: `translate(${cursorPos.x * 0.02}px, ${cursorPos.y * 0.02}px)`
         }}
       />
-      <div 
+      <div
         className="orb-glow orb-2"
         style={{
           transform: `translate(${-cursorPos.x * 0.02}px, ${-cursorPos.y * 0.02}px)`
@@ -540,29 +487,19 @@ const SponsorUs = () => {
             Want to <span className="gradient-text">Sponsor Us?</span>
           </h1>
           <p className="hero-subtitle">
-            Reach hundreds of students and potential customers by sponsoring HackOverflow 4.0. 
+            Reach hundreds of students and potential customers by sponsoring HackOverflow 4.0.
             Partner with us to inspire innovation and connect with the next generation of tech leaders.
           </p>
           <div className="cta-buttons">
             <a href="/docs/SponsorBrochure.pdf" download="HackOverflow_4.0_Sponsorship_Brochure.pdf" className="cta-btn cta-primary" style={{ position: 'relative', zIndex: 1 }}>
               <span style={{ position: 'relative', zIndex: 1 }}>Download Brochure</span>
             </a>
-            <a href="mailto:admin@hackoverflow3.tech" className="cta-btn cta-secondary" style={{ position: 'relative', zIndex: 1 }}>
+            <a href="mailto:admin@hackoverflow4.tech" className="cta-btn cta-secondary" style={{ position: 'relative', zIndex: 1 }}>
               <span style={{ position: 'relative', zIndex: 1 }}>Email Us</span>
             </a>
           </div>
         </div>
 
-        {/* Stats Section */}
-        <div className="stats-grid">
-          {stats.map((stat, index) => (
-            <div key={index} className="stat-card">
-              <div className="stat-icon">{stat.icon}</div>
-              <span className="stat-number">{stat.number}</span>
-              <span className="stat-label">{stat.label}</span>
-            </div>
-          ))}
-        </div>
 
         {/* Benefits Section */}
         <h2 className="section-title">
@@ -570,7 +507,7 @@ const SponsorUs = () => {
         </h2>
         <div className="benefits-grid">
           {benefits.map((benefit) => (
-            <div 
+            <div
               key={benefit.id}
               className="benefit-card"
               onMouseEnter={() => setHoveredBenefit(benefit.id)}
@@ -586,39 +523,6 @@ const SponsorUs = () => {
           ))}
         </div>
 
-        {/* Sponsorship Tiers */}
-        <h2 className="section-title">
-          Sponsorship <span className="gradient-text">Packages</span>
-        </h2>
-        <div className="tiers-grid">
-          {tiers.map((tier, index) => (
-            <div 
-              key={index}
-              className="tier-card"
-              style={{ '--tier-gradient': tier.gradient } as React.CSSProperties}
-            >
-              <h3 className="tier-name">{tier.name}</h3>
-              <ul className="tier-features">
-                {tier.features.map((feature, idx) => (
-                  <li key={idx} className="tier-feature">{feature}</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-
-        {/* Contact Section */}
-        <div className="contact-section">
-          <h2 className="contact-title">Ready to Make an Impact?</h2>
-          <p className="contact-desc">
-            Let's discuss how we can create a meaningful partnership that benefits both our communities
-          </p>
-          <div className="cta-buttons">
-            <a href="mailto:admin@hackoverflow3.tech" className="cta-btn cta-primary" style={{ position: 'relative', zIndex: 1 }}>
-              <span style={{ position: 'relative', zIndex: 1 }}>Get in Touch</span>
-            </a>
-          </div>
-        </div>
       </div>
     </section>
   );
