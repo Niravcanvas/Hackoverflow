@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SectionHeader from "./SectionHeader";
 
 const FAQs = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -76,10 +77,10 @@ const FAQs = () => {
       faq.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       faq.text.toLowerCase().includes(searchQuery.toLowerCase()) ||
       faq.category.toLowerCase().includes(searchQuery.toLowerCase());
-    
+
     const matchesCategory =
       selectedCategory === "All" || faq.category === selectedCategory;
-    
+
     return matchesSearch && matchesCategory;
   });
 
@@ -117,44 +118,7 @@ const FAQs = () => {
           z-index: 1;
         }
 
-        .faq-header {
-          text-align: center;
-          margin-bottom: 4rem;
-        }
 
-        .faq-badge {
-          display: inline-block;
-          padding: 0.5rem 1.2rem;
-          background: rgba(231, 88, 41, 0.15);
-          border: 1px solid rgba(231, 88, 41, 0.4);
-          border-radius: 50px;
-          color: #e75829;
-          font-size: 0.85rem;
-          font-weight: 600;
-          letter-spacing: 1px;
-          text-transform: uppercase;
-          margin-bottom: 1.5rem;
-          backdrop-filter: blur(10px);
-        }
-
-        .faq-main-title {
-          font-family: 'Poppins', sans-serif;
-          font-size: 3rem;
-          font-weight: 700;
-          color: #ffffff;
-          margin-bottom: 1rem;
-          background: linear-gradient(135deg, #e75829 0%, #FFD47C 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          line-height: 1.2;
-        }
-
-        .faq-subtitle {
-          font-size: 1.1rem;
-          color: rgba(255, 255, 255, 0.6);
-          margin-bottom: 2rem;
-        }
 
         .search-wrapper {
           position: relative;
@@ -427,38 +391,36 @@ const FAQs = () => {
       `}</style>
 
       <div className="faq-container">
-        <div className="faq-header">
-          <span className="faq-badge">Got Questions?</span>
-            <h2 className="dates-title">
-            Frequently asked <span className="gradient-text"> Questions</span>
-            </h2>
-          <p className="faq-subtitle">
-            Find answers to common questions about HackOverflow
-          </p>
+        <SectionHeader
+          badge="Got Questions?"
+          title="Frequently asked"
+          gradientText="Questions"
+          subtitle="Find answers to common questions about HackOverflow"
+        />
 
-          <div className="search-wrapper">
-            <span className="search-icon">🔍</span>
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search for answers..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
-
-          <div className="category-filters">
-            {categories.map((category) => (
-              <button
-                key={category}
-                className={`category-chip ${selectedCategory === category ? "active" : ""}`}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+        <div className="search-wrapper">
+          <span className="search-icon">🔍</span>
+          <input
+            type="text"
+            className="search-input"
+            placeholder="Search for answers..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
         </div>
+
+        <div className="category-filters">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`category-chip ${selectedCategory === category ? "active" : ""}`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
 
         <div className="faq-list">
           {filteredFAQs.length > 0 ? (
@@ -503,7 +465,7 @@ const FAQs = () => {
           )}
         </div>
       </div>
-    </section>
+    </section >
   );
 };
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import SectionHeader from "./SectionHeader";
 
 const Themes = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -108,40 +109,12 @@ const Themes = () => {
           text-align: center;
         }
 
-        .themes-title {
-          font-family: 'Poppins', sans-serif;
-          font-size: 4.5rem;
-          font-weight: 800;
-          color: #FFFFFF;
-          margin-bottom: 20px;
+        .theme-header-anim {
           opacity: 0;
           animation: fadeInUp 0.8s ease forwards 0.2s;
         }
 
-        .themes-title.visible {
-          opacity: 1;
-        }
-
-        .gradient-text-themes {
-          background: linear-gradient(90deg, #FCB216 0%, #E85D24 35%, #D91B57 70%, #63205F 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          display: inline-block;
-        }
-
-        .themes-subtitle {
-          font-family: 'Poppins', sans-serif;
-          font-size: 1.2rem;
-          color: rgba(255, 255, 255, 0.6);
-          max-width: 700px;
-          margin: 0 auto 60px;
-          line-height: 1.8;
-          opacity: 0;
-          animation: fadeInUp 0.8s ease forwards 0.4s;
-        }
-
-        .themes-subtitle.visible {
+        .theme-header-anim.visible {
           opacity: 1;
         }
 
@@ -430,18 +403,14 @@ const Themes = () => {
         </div>
 
         <div className="themes-container">
-          <div className={`faq-badge ${isVisible ? "visible" : ""}`}>
-            Coming Soon
+          <div className={`theme-header-anim ${isVisible ? "visible" : ""}`}>
+            <SectionHeader
+              badge="Coming Soon"
+              title="Hackoverflow"
+              gradientText="Theme"
+              subtitle="Get ready to dive into exciting problem statements that will challenge your creativity and technical skills"
+            />
           </div>
-
-          <h2 className="dates-title">
-            Hackoverflow<span className="gradient-text"> Theme</span>
-          </h2>
-
-          <p className={`themes-subtitle ${isVisible ? "visible" : ""}`}>
-            Get ready to dive into exciting problem statements that will
-            challenge your creativity and technical skills
-          </p>
 
           <div className={`announcement-box ${isVisible ? "visible" : ""}`}>
             <div className="announcement-icon">

@@ -1,4 +1,5 @@
 import React from "react";
+import SectionHeader from "./SectionHeader";
 import { Linkedin, Twitter, Github } from "lucide-react";
 
 interface TeamMember {
@@ -44,15 +45,20 @@ export default function Team() {
       role: "Hackoveflow 4.0 Lead",
       image: "/images/Team/Darin.jpeg",
       bio: "Product visionary with 15+ years experience",
-      socials: { linkedin: " https://www.linkedin.com/in/darin-peringalloor", 
-        github: "https://github.com/DarinJoy" },
+      socials: {
+        linkedin: " https://www.linkedin.com/in/darin-peringalloor",
+        github: "https://github.com/DarinJoy"
+      },
     },
     {
       name: "Sampriti Dogra",
       role: "Hackoveflow 4.0 Lead",
       image: "/images/Team/Sampriti Dogra.jpeg",
       bio: "Systems architect & infra expert",
-      socials: { github: "" },
+      socials: {
+        linkedin: " https://www.linkedin.com/in/sampriti-dogra",
+        github: "https://github.com/sampriti-9"
+      },
     },
   ];
 
@@ -62,17 +68,20 @@ export default function Team() {
       role: "Event Head",
       image: "/images/Team/Parth Bhoir.jpeg",
       bio: "Building communities and outreach",
-      socials: { linkedin: "https://in.linkedin.com/in/parth-bhoir-781727289",
+      socials: {
+        linkedin: "https://in.linkedin.com/in/parth-bhoir-781727289",
         github: "https://github.com/Parthb56"
-       },
+      },
     },
     {
       name: "Chetan Jadhav",
       role: "Technical Head",
       image: "/images/Team/Chetan Jadhav.jpeg",
       bio: "Building communities and outreach",
-      socials: { linkedin: "https://www.linkedin.com/in/iamchetanjadhav", 
-        github: "https://github.com/iamchetanjadhav" },
+      socials: {
+        linkedin: "https://www.linkedin.com/in/iamchetanjadhav",
+        github: "https://github.com/iamchetanjadhav"
+      },
     },
     {
       name: "Rohan Gharat",
@@ -86,68 +95,90 @@ export default function Team() {
       role: "Graphics Head",
       image: "/images/Team/Aarya Karpe.png",
       bio: "0 to millions specialist",
-      socials: {  },
+      socials: {
+        linkedin: "linkedin.com/in/aarya-karpe-b88b4b312",
+        github: "github.com/aaryakarpe"
+      },
     },
     {
       name: "Ashutosh Chavan",
       role: "Finance Head",
       image: "/images/Team/Ashutosh Chavan.jpeg",
       bio: "Building communities and outreach",
-      socials: { github: "https://github.com/Ashutosh-Chavan", 
-        linkedin: "https://www.linkedin.com/in/ashutosh-chavan2212" },
+      socials: {
+        github: "https://github.com/Ashutosh-Chavan",
+        linkedin: "https://www.linkedin.com/in/ashutosh-chavan2212"
+      },
     },
     {
       name: "Aayush Gunjal",
       role: "Management Head",
       image: "/images/Team/Aayush Gunjal.jpeg",
       bio: "Designing intuitive user experiences",
-      socials: { linkedin: "http://linkedin.com/in/aayushgunjal", 
-        github: "http://github.com/AayushGunjal" },
+      socials: {
+        linkedin: "http://linkedin.com/in/aayushgunjal",
+        github: "http://github.com/AayushGunjal"
+      },
     },
     {
       name: "Midhun Mohandas",
       role: "PR/BD Head",
       image: "/images/Team/Midhun Mohandas.jpeg",
       bio: "Building communities and outreach",
-      socials: { linkedin: "https://www.linkedin.com/in/midhun-mohandas-684a07283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app", 
-        github: "https://github.com/student-midhun" },
+      socials: {
+        linkedin: "https://www.linkedin.com/in/midhun-mohandas-684a07283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        github: "https://github.com/student-midhun"
+      },
     },
     {
       name: "Richa Shringarpure",
       role: "Documentation Head",
       image: "/images/Team/Richa Shrungarpure.png",
       bio: "Building communities and outreach",
-      socials: { linkedin: "https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav", 
-        github: "https://github.com/RichaShringarpure" },
+      socials: {
+        linkedin: "https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav",
+        github: "https://github.com/RichaShringarpure"
+      },
     },
     {
       name: "Vedanti Patil",
       role: "Decor Head",
       image: "/images/Team/Vedanti Patil.jpeg",
       bio: "Building communities and outreach",
-      socials: {  },
+      socials: {
+        linkedin: "www.linkedin.com/in/vedanti-patil-2004vp",
+        github: "https://github.com/V0630"
+      },
     },
     {
       name: "Sharayu Patil",
       role: "Decor Head",
       image: "/images/Team/Sharayu Patil.jpeg",
       bio: "Building communities and outreach",
-      socials: {  },
+      socials: {
+        linkedin: "https://www.linkedin.com/in/sharayupatil2624",
+        github: "https://github.com/Sharayu2624"
+      },
     },
     {
       name: "Chetan Jadhav",
       role: "Publicity Head",
       image: "/images/Team/Chetan Jadhav.jpeg",
       bio: "Building communities and outreach",
-      socials: { linkedin: "https://www.linkedin.com/in/iamchetanjadhav", 
-        github: "https://github.com/iamchetanjadhav" },
+      socials: {
+        linkedin: "https://www.linkedin.com/in/iamchetanjadhav",
+        github: "https://github.com/iamchetanjadhav"
+      },
     },
     {
       name: "Aayush Gunjal",
       role: "Publicity Head",
       image: "/images/Team/Aayush Gunjal.jpeg",
       bio: "Building communities and outreach",
-      socials: { linkedin: "http://linkedin.com/in/aayushgunjal", github: "http://github.com/AayushGunjal" },
+      socials: {
+        linkedin: "http://linkedin.com/in/aayushgunjal",
+        github: "http://github.com/AayushGunjal"
+      },
     },
   ];
 
@@ -193,30 +224,9 @@ export default function Team() {
           padding: 0 2rem;
         }
 
-        /* MAIN HEADER */
-        .team-header {
-          text-align: center;
-          margin-bottom: 5rem;
-        }
 
-        .team-title {
-          font-size: 3.6rem;
-          font-weight: 800;
-          color: #fff;
-        }
 
-        .gradient-text {
-          background: linear-gradient(135deg, #e75829, #F2A03D);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .team-subtitle {
-          color: rgba(255,255,255,0.65);
-          margin-top: 0.6rem;
-        }
-
-        /* ===== SECTION HEAD ===== */
+        /* Section Head */
         .section-head {
           text-align: center;
           margin-bottom: 1.8rem;
@@ -261,7 +271,7 @@ export default function Team() {
           gap: 2rem;
         }
 
-        /* CARD */
+        /* Card */
         .team-card {
           width: 260px;
           min-height: 320px;
@@ -357,14 +367,13 @@ export default function Team() {
       `}</style>
 
       <div className="team-container">
-        <div className="team-header">
-          <h2 className="team-title">
-            Meet Our <span className="gradient-text">Workforce</span>
-          </h2>
-          <p className="team-subtitle">
-            Innovators, dreamers, and builders creating the future
-          </p>
-        </div>
+        <SectionHeader
+          badge="Our Team"
+          title="Meet Our"
+          gradientText="Workforce"
+          subtitle="Innovators, dreamers, and builders creating the future"
+          className="team-header-spacer"
+        />
 
         {/* FACULTY */}
         <div className="team-level">

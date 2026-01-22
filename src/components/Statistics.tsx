@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SectionHeader from "./SectionHeader";
 
 type YearKey = "1.0" | "2.0" | "3.0";
 
@@ -96,19 +97,7 @@ const Statistics = () => {
           padding:0 2rem;
         }
 
-        .stats-title {
-          text-align:center;
-          font-size:3rem;
-          font-weight:800;
-          color:#fff;
-          margin-bottom:2.5rem;
-        }
 
-        .gradient-text {
-          background:linear-gradient(90deg,#FCB216,#E85D24);
-          -webkit-background-clip:text;
-          -webkit-text-fill-color:transparent;
-        }
 
         .year-selector {
           display:flex;
@@ -211,9 +200,12 @@ const Statistics = () => {
       `}</style>
 
       <div className="stats-container">
-        <h2 className="stats-title">
-          HackOverflow <span className="gradient-text">Statistics</span>
-        </h2>
+        <SectionHeader
+          badge="By The Numbers"
+          title="HackOverflow"
+          gradientText="Statistics"
+          subtitle="Celebrating our milestones and community growth through the years"
+        />
 
         <div className="year-selector">
           {(Object.keys(statsData) as YearKey[]).map(y => (

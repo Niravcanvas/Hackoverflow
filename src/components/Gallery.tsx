@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SectionHeader from "./SectionHeader";
 
 type YearKey = "1.0" | "2.0" | "3.0";
 
@@ -225,32 +226,6 @@ const Gallery = () => {
           padding: 0 2rem;
           position: relative;
           z-index: 1;
-        }
-
-        .gallery-header {
-          text-align: center;
-          margin-bottom: 3rem;
-        }
-
-        .dates-title {
-          font-size: 3.5rem;
-          font-weight: 900;
-          color: #FFFFFF;
-          margin-bottom: 0.8rem;
-          line-height: 1.1;
-          letter-spacing: -1.5px;
-        }
-
-        .gradient-text {
-          background: linear-gradient(90deg, #FCB216 0%, #E85D24 35%, #D91B57 70%, #63205F 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        .gallery-subtitle {
-          font-size: 1rem;
-          color: #B0B0B0;
         }
 
         .year-selector {
@@ -594,15 +569,12 @@ const Gallery = () => {
       />
 
       <div className="gallery-container">
-        <div className="gallery-header">
-          <span className="faq-badge">Journey Through Time</span>
-          <h2 className="dates-title">
-            Hackoverflow<span className="gradient-text"> Memories</span>
-          </h2>
-          <p className="gallery-subtitle">
-            Relive the moments that defined innovation
-          </p>
-        </div>
+        <SectionHeader
+          badge="Journey Through Time"
+          title="Hackoverflow"
+          gradientText=" Memories"
+          subtitle="Relive the moments that defined innovation"
+        />
 
         <div className="year-selector">
           {(Object.keys(galleryData) as YearKey[]).map((year) => (

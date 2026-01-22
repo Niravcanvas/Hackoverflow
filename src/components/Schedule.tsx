@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import SectionHeader from "./SectionHeader";
 
 type EventType =
   | "registration"
@@ -85,41 +86,7 @@ const Schedule = () => {
           margin: 0 auto;
         }
 
-        /* HEADER */
-        .schedule-header {
-          text-align: center;
-          margin-bottom: 4rem;
-        }
 
-        .schedule-badge {
-          display: inline-block;
-          padding: 0.5rem 1.4rem;
-          border-radius: 999px;
-          background: rgba(231,88,41,0.15);
-          border: 1px solid rgba(231,88,41,0.4);
-          color: #e75829;
-          font-weight: 600;
-          margin-bottom: 1.2rem;
-        }
-
-        .schedule-title {
-          font-size: 3.5rem;
-          font-weight: 800;
-          color: #fff;
-        }
-
-        .gradient-text {
-          background: linear-gradient(90deg, #FCB216, #E85D24, #D91B57);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
-        .schedule-subtitle {
-          color: rgba(255,255,255,0.6);
-          margin-top: 0.8rem;
-        }
-
-        /* DAY SELECTOR */
         .day-selector {
           display: flex;
           justify-content: center;
@@ -146,7 +113,6 @@ const Schedule = () => {
           box-shadow: 0 8px 24px rgba(231,88,41,0.3);
         }
 
-        /* TIMELINE */
         .timeline-container {
           position: relative;
           padding: 2rem 0;
@@ -232,7 +198,6 @@ const Schedule = () => {
           color: #fff;
         }
 
-        /* MOBILE */
         @media (max-width: 768px) {
           .timeline-line {
             left: 30px;
@@ -260,15 +225,12 @@ const Schedule = () => {
       `}</style>
 
       <div className="schedule-content">
-        <div className="schedule-header">
-          <div className="schedule-badge">3-Day Event</div>
-          <h2 className="schedule-title">
-            Event <span className="gradient-text">Schedule</span>
-          </h2>
-          <p className="schedule-subtitle">
-            A 72-hour journey of innovation, collaboration, and creation
-          </p>
-        </div>
+        <SectionHeader
+          badge="3-Day Event"
+          title="Event"
+          gradientText="Schedule"
+          subtitle="A 36-hour journey of innovation, collaboration, and creation"
+        />
 
         <div className="day-selector">
           {[1, 2, 3].map((day) => (

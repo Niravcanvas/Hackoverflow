@@ -1,67 +1,68 @@
 import React, { useState, useEffect } from "react";
+import SectionHeader from "./SectionHeader";
 
 const SponsorUs = () => {
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
+    const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+    const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPos({ x: e.clientX, y: e.clientY });
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
-
-
-  const benefits = [
-    {
-      id: 1,
-      icon: "🎯",
-      title: "Brand Visibility",
-      desc: "Get your brand in front of 500+ tech enthusiasts and innovators",
-      color: "#FCB216"
-    },
-    {
-      id: 2,
-      icon: "🤝",
-      title: "Talent Pipeline",
-      desc: "Connect with top engineering talent and future tech leaders",
-      color: "#E85D24"
-    },
-    {
-      id: 3,
-      icon: "📢",
-      title: "Marketing Reach",
-      desc: "Extensive promotion across social media and campus networks",
-      color: "#D91B57"
-    },
-    {
-      id: 4,
-      icon: "🚀",
-      title: "Innovation Access",
-      desc: "First look at cutting-edge projects and breakthrough ideas",
-      color: "#63205F"
-    },
-    {
-      id: 5,
-      icon: "🌟",
-      title: "Community Impact",
-      desc: "Support the next generation of innovators and problem solvers",
-      color: "#FCB216"
-    },
-    {
-      id: 6,
-      icon: "📊",
-      title: "Thought Leadership",
-      desc: "Position your brand as a leader in tech and innovation",
-      color: "#E85D24"
-    }
-  ];
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            setCursorPos({ x: e.clientX, y: e.clientY });
+        };
+        window.addEventListener("mousemove", handleMouseMove);
+        return () => window.removeEventListener("mousemove", handleMouseMove);
+    }, []);
 
 
-  return (
-    <section className="sponsor-section">
-      <style>{`
+    const benefits = [
+        {
+            id: 1,
+            icon: "🎯",
+            title: "Brand Visibility",
+            desc: "Get your brand in front of 500+ tech enthusiasts and innovators",
+            color: "#FCB216"
+        },
+        {
+            id: 2,
+            icon: "🤝",
+            title: "Talent Pipeline",
+            desc: "Connect with top engineering talent and future tech leaders",
+            color: "#E85D24"
+        },
+        {
+            id: 3,
+            icon: "📢",
+            title: "Marketing Reach",
+            desc: "Extensive promotion across social media and campus networks",
+            color: "#D91B57"
+        },
+        {
+            id: 4,
+            icon: "🚀",
+            title: "Innovation Access",
+            desc: "First look at cutting-edge projects and breakthrough ideas",
+            color: "#63205F"
+        },
+        {
+            id: 5,
+            icon: "🌟",
+            title: "Community Impact",
+            desc: "Support the next generation of innovators and problem solvers",
+            color: "#FCB216"
+        },
+        {
+            id: 6,
+            icon: "📊",
+            title: "Thought Leadership",
+            desc: "Position your brand as a leader in tech and innovation",
+            color: "#E85D24"
+        }
+    ];
+
+
+    return (
+        <section className="sponsor-section">
+            <style>{`
         * {
           margin: 0;
           padding: 0;
@@ -84,36 +85,6 @@ const SponsorUs = () => {
           padding: 0 2rem;
           position: relative;
           z-index: 1;
-        }
-
-        .hero-section {
-          text-align: center;
-          margin-bottom: 4rem;
-          padding: 3rem 0;
-        }
-
-        .hero-title {
-          font-size: 4rem;
-          font-weight: 900;
-          color: #FFFFFF;
-          margin-bottom: 1rem;
-          line-height: 1.1;
-          letter-spacing: -2px;
-        }
-
-        .gradient-text {
-          background: linear-gradient(90deg, #FCB216 0%, #E85D24 35%, #D91B57 70%, #63205F 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-
-        .hero-subtitle {
-          font-size: 1.2rem;
-          color: #B0B0B0;
-          max-width: 700px;
-          margin: 0 auto 2.5rem;
-          line-height: 1.6;
         }
 
         .cta-buttons {
@@ -466,66 +437,63 @@ const SponsorUs = () => {
         }
       `}</style>
 
-      <div
-        className="orb-glow orb-1"
-        style={{
-          transform: `translate(${cursorPos.x * 0.02}px, ${cursorPos.y * 0.02}px)`
-        }}
-      />
-      <div
-        className="orb-glow orb-2"
-        style={{
-          transform: `translate(${-cursorPos.x * 0.02}px, ${-cursorPos.y * 0.02}px)`
-        }}
-      />
-
-      <div className="sponsor-container">
-        {/* Hero Section */}
-        <div className="hero-section">
-          <span className="faq-badge">Partnership Opportunity</span>
-          <h1 className="hero-title">
-            Want to <span className="gradient-text">Sponsor Us?</span>
-          </h1>
-          <p className="hero-subtitle">
-            Reach hundreds of students and potential customers by sponsoring HackOverflow 4.0.
-            Partner with us to inspire innovation and connect with the next generation of tech leaders.
-          </p>
-          <div className="cta-buttons">
-            <a href="/docs/SponsorBrochure.pdf" download="HackOverflow_4.0_Sponsorship_Brochure.pdf" className="cta-btn cta-primary" style={{ position: 'relative', zIndex: 1 }}>
-              <span style={{ position: 'relative', zIndex: 1 }}>Download Brochure</span>
-            </a>
-            <a href="mailto:admin@hackoverflow4.tech" className="cta-btn cta-secondary" style={{ position: 'relative', zIndex: 1 }}>
-              <span style={{ position: 'relative', zIndex: 1 }}>Email Us</span>
-            </a>
-          </div>
-        </div>
-
-
-        {/* Benefits Section */}
-        <h2 className="section-title">
-          Why <span className="gradient-text">Partner With Us?</span>
-        </h2>
-        <div className="benefits-grid">
-          {benefits.map((benefit) => (
             <div
-              key={benefit.id}
-              className="benefit-card"
-              onMouseEnter={() => setHoveredBenefit(benefit.id)}
-              onMouseLeave={() => setHoveredBenefit(null)}
-              style={{
-                borderColor: hoveredBenefit === benefit.id ? benefit.color : 'rgba(255, 255, 255, 0.1)'
-              }}
-            >
-              <span className="benefit-icon">{benefit.icon}</span>
-              <h3 className="benefit-title">{benefit.title}</h3>
-              <p className="benefit-desc">{benefit.desc}</p>
-            </div>
-          ))}
-        </div>
+                className="orb-glow orb-1"
+                style={{
+                    transform: `translate(${cursorPos.x * 0.02}px, ${cursorPos.y * 0.02}px)`
+                }}
+            />
+            <div
+                className="orb-glow orb-2"
+                style={{
+                    transform: `translate(${-cursorPos.x * 0.02}px, ${-cursorPos.y * 0.02}px)`
+                }}
+            />
 
-      </div>
-    </section>
-  );
+            <div className="sponsor-container">
+                <div style={{ textAlign: "center", marginBottom: "4rem", padding: "3rem 0" }}>
+                    <SectionHeader
+                        badge="Partnership Opportunity"
+                        title="Want to"
+                        gradientText="Sponsor Us?"
+                        subtitle="Reach hundreds of students and potential customers by sponsoring HackOverflow 4.0. Partner with us to inspire innovation and connect with the next generation of tech leaders."
+                    />
+                    <div className="cta-buttons">
+                        <a href="/docs/SponsorBrochure.pdf" download="HackOverflow_4.0_Sponsorship_Brochure.pdf" className="cta-btn cta-primary" style={{ position: 'relative', zIndex: 1 }}>
+                            <span style={{ position: 'relative', zIndex: 1 }}>Download Brochure</span>
+                        </a>
+                        <a href="mailto:admin@hackoverflow4.tech" className="cta-btn cta-secondary" style={{ position: 'relative', zIndex: 1 }}>
+                            <span style={{ position: 'relative', zIndex: 1 }}>Email Us</span>
+                        </a>
+                    </div>
+                </div>
+
+
+                {/* Benefits Section */}
+                <h2 className="section-title">
+                    Why <span className="gradient-text">Partner With Us?</span>
+                </h2>
+                <div className="benefits-grid">
+                    {benefits.map((benefit) => (
+                        <div
+                            key={benefit.id}
+                            className="benefit-card"
+                            onMouseEnter={() => setHoveredBenefit(benefit.id)}
+                            onMouseLeave={() => setHoveredBenefit(null)}
+                            style={{
+                                borderColor: hoveredBenefit === benefit.id ? benefit.color : 'rgba(255, 255, 255, 0.1)'
+                            }}
+                        >
+                            <span className="benefit-icon">{benefit.icon}</span>
+                            <h3 className="benefit-title">{benefit.title}</h3>
+                            <p className="benefit-desc">{benefit.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+            </div>
+        </section>
+    );
 };
 
 export default SponsorUs;
