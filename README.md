@@ -7,7 +7,7 @@
 [![Next.js](https://img.shields.io/badge/Next.js-14+-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.0+-38bdf8?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=for-the-badge)](LICENSE)
+[![License](https://img.shields.io/badge/License-Educational_Use-green?style=for-the-badge)](LICENSE)
 
 **🌐 [Visit Live Website](https://hackoverflow4.tech/)** • [Features](#-features) • [Installation](#-installation) • [Documentation](#-documentation)
 
@@ -316,13 +316,30 @@ For technical issues or feature requests, please open an issue on GitHub.
 
 ## 📄 License
 
-**© 2026 HackOverflow 4.0 – All Rights Reserved**
+**© 2026 HackOverflow 4.0 – HackOverflow Organizing Committee**
 
-This project is proprietary and confidential. Unauthorized copying, distribution, or use of this software is strictly prohibited without express written permission from the HackOverflow organizing committee.
+This project is open source for educational and non-commercial use.
+
+### ✅ Permitted Use
+- Personal learning and experimentation
+- Academic use by students and educational institutions
+- Portfolio and skill-development projects
+- Non-commercial forks with attribution
+
+### ❌ Restricted Use
+- Commercial deployment or monetization
+- Enterprise or organizational use without permission
+- Redistribution as part of paid products or services
+- White-labeling or resale
+
+### 🏢 Commercial & Enterprise Use
+Organizations and companies must obtain written permission before commercial use.
+
+📧 Permission requests: [admin@hackoverflow.tech](mailto:admin@hackoverflow.tech)
 
 ---
 
-## Acknowledgments
+## 🙏 Acknowledgments
 
 - **Next.js Team** – For the incredible React framework
 - **Tailwind Labs** – For the utility-first CSS framework
