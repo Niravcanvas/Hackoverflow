@@ -231,7 +231,6 @@ The theme section showcases hackathon tracks with:
 - Announcement box with shimmer animation
 - Floating icon with pulse rings
 - Countdown timer (days, hours, minutes, seconds)
-- Notify button with hover gradient effect
 - Participant note with custom styling
 
 **Key CSS Classes:**
@@ -305,7 +304,7 @@ We welcome contributions! To contribute:
 
 **HackOverflow 4.0 Organizing Team**
 
-📧 Email: [admin@hackoverflow.tech](mailto:admin@hackoverflow.tech)  
+📧 Email: [hackoverflow@mes.ac.in](mailto:hackoverflow@mes.ac.in)  
 🌐 Website: [https://hackoverflow4.tech/](https://hackoverflow4.tech/)  
 💬 Discord: [Join our community](https://discord.gg/Pha3qubw)  
 📷 Instagram: [@hackoverflow.tech](https://www.instagram.com/hackoverflow.tech)  
