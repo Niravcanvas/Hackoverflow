@@ -327,9 +327,16 @@ const SponsorUs: React.FC = () => {
           <div className="marquee-track">
             {[...pastSponsors, ...pastSponsors].map((s, i) => (
               <div key={i} className="marquee-item">
-                <div className="sponsor-card-box">
-                  <img src={s.image} alt="Sponsor" />
-                </div>
+                <a
+                  href={s.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ display: 'block', textDecoration: 'none' }}
+                >
+                  <div className="sponsor-card-box">
+                    <img src={s.image} alt="Sponsor" />
+                  </div>
+                </a>
               </div>
             ))}
           </div>
