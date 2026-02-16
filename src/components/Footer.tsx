@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const Footer = () => {
   const socialLinks = [
     {
@@ -287,9 +289,11 @@ const Footer = () => {
         {/* Brand Section */}
         <div className="footer-section">
           <div className="footer-logo">
-            <img
+            <Image
               src="/images/Logo.png"
               alt="HackOverflow 4.0 Logo"
+              width={80}
+              height={80}
               loading="lazy"
             />
           </div>

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from "next/image";
 import SectionHeader from "./SectionHeader";
 
 type YearKey = "1.0" | "2.0" | "3.0";
@@ -343,12 +344,6 @@ const Gallery = () => {
           box-shadow: 0 0 25px rgba(252, 178, 22, 0.4);
         }
 
-        .immersive-image {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-
         .overlay {
           position: absolute;
           inset: 0;
@@ -441,10 +436,12 @@ const Gallery = () => {
                 .map((m) => (
                   <div key={m.id} className="immersive-card">
                     {/* Fixed: Added alt attribute for accessibility */}
-                    <img 
+                    <Image
                       src={m.image} 
-                      className="immersive-image" 
                       alt={`${m.title} - ${m.desc}`}
+                      fill
+                      className="immersive-image"
+                      style={{ objectFit: 'cover' }}
                     />
                     <div className="overlay">
                       <small style={{ color: m.color }}>{m.time}</small>

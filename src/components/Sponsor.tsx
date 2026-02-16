@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SectionHeader from "./SectionHeader";
@@ -18,6 +19,9 @@ const SponsorUs: React.FC = () => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [hoveredBenefit, setHoveredBenefit] = useState<number | null>(null);
 
+  // Fixed: Commented out unused variable since it's not being used in JSX
+  // Uncomment when you're ready to display "Our Sponsors" section
+  /*
   const ourSponsors: SponsorItem[] = [
     { id: 1, name: "Blue Star", image: "/images/Sponsors/Blue Star tab.png", link: "#", effect: "fade-up", SubSponsorcategory: "Co-Powered By" },
     { id: 2, name: "Devfolio", image: "/images/Sponsors/devfolioWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gold Sponsor" },
@@ -30,6 +34,7 @@ const SponsorUs: React.FC = () => {
     { id: 9, name: "Solana", image: "/images/Sponsors/solanaWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Silver Sponsor" },
     { id: 10, name: "FileCoin", image: "/images/Sponsors/filecoinWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Silver Sponsor" }
   ];
+  */
 
   const pastSponsors: SponsorItem[] = [
     { id: 1, image: "/images/Sponsors/devfolioWhite.png", link: "https://devfolio.co/" },
@@ -225,12 +230,7 @@ const SponsorUs: React.FC = () => {
           align-items: center;
           justify-content: center;
           padding: 1rem;
-        }
-
-        .sponsor-card-box img {
-          max-width: 90%;
-          max-height: 90%;
-          object-fit: contain;
+          position: relative;
         }
 
         /* Past sponsor flowting row */
@@ -334,7 +334,12 @@ const SponsorUs: React.FC = () => {
                   style={{ display: 'block', textDecoration: 'none' }}
                 >
                   <div className="sponsor-card-box">
-                    <img src={s.image} alt="Sponsor" />
+                    <Image 
+                      src={s.image} 
+                      alt="Sponsor"
+                      fill
+                      style={{ objectFit: 'contain' }}
+                    />
                   </div>
                 </a>
               </div>

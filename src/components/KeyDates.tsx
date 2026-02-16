@@ -1,4 +1,4 @@
-import { useEffect, useState, CSSProperties } from 'react';
+import { useEffect, CSSProperties } from 'react';
 
 interface TimelineItem {
   id: number;
@@ -11,7 +11,8 @@ interface TimelineItem {
 }
 
 const DateCards = () => {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  // Fixed: Removed unused hoveredCard state since it's not being used anywhere
+  // If you need hover tracking later, you can add it back
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -311,7 +312,8 @@ const DateCards = () => {
               Mark Your <span className="gradient-text">Calendar</span>
             </h2>
             <p className="dates-subtitle">
-              Don't miss these crucial milestones on your journey to innovation
+              {/* Fixed: Escaped apostrophe using &apos; */}
+              Don&apos;t miss these crucial milestones on your journey to innovation
             </p>
           </div>
 
@@ -321,8 +323,6 @@ const DateCards = () => {
                 key={item.id}
                 className="date-card"
                 style={{ '--card-color': item.color } as CSSProperties}
-                onMouseEnter={() => setHoveredCard(item.id)}
-                onMouseLeave={() => setHoveredCard(null)}
               >
                 <div className="date-icon">
                   <div className="date-display">
