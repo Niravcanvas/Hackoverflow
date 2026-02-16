@@ -274,7 +274,8 @@ const HackathonOverview = () => {
                   HackOverflow 4.0 is a <strong>3 days national-level hackathon</strong> that brings together the most creative minds in technology. 
                 </p>
                 <p className="about-text">
-                  We don't just write code; we build the future. Whether you are a master of <span className="highlight-gold">AI/ML</span>, a <span className="highlight-orange">Blockchain</span> wizard, or a <span className="highlight-pink">Web3</span> enthusiast, this is your platform to innovate.
+                  {/* Fixed: Escaped apostrophe using &apos; */}
+                  We don&apos;t just write code; we build the future. Whether you are a master of <span className="highlight-gold">AI/ML</span>, a <span className="highlight-orange">Blockchain</span> wizard, or a <span className="highlight-pink">Web3</span> enthusiast, this is your platform to innovate.
                 </p>
                 
                 <div className="stats-row">

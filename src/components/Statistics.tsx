@@ -3,10 +3,43 @@ import SectionHeader from "./SectionHeader";
 
 type YearKey = "1.0" | "2.0" | "3.0";
 
+// Define proper types instead of 'any'
+interface Category {
+  name: string;
+  value: number;
+}
+
+interface Achievement {
+  icon: string;
+  label: string;
+  value: string;
+}
+
+interface ImpactItem {
+  value: string;
+  label: string;
+}
+
+interface Overview {
+  participants: string;
+  Registrations: string;
+  hours: number;
+  states: number;
+}
+
+interface YearData {
+  title: string;
+  overview: Overview;
+  categories: Category[];
+  achievements: Achievement[];
+  impact: ImpactItem[];
+}
+
 const Statistics = () => {
   const [selectedYear, setSelectedYear] = useState<YearKey>("2.0");
 
-  const statsData: Record<YearKey, any> = {
+  // Fixed: Changed from Record<YearKey, any> to proper type
+  const statsData: Record<YearKey, YearData> = {
     "1.0": {
       title: "HackOverflow 1.0",
       overview: { participants: "200+", Registrations: "1000+", hours: 36, states: 10 },
@@ -233,7 +266,8 @@ const Statistics = () => {
         <div className="grid-12">
           <div className="card span-4">
             <h3 className="card-title">Project Categories</h3>
-            {current.categories.map((c: any, i: number) => (
+            {/* Fixed: Changed (c: any) to (c: Category) */}
+            {current.categories.map((c: Category, i: number) => (
               <div key={i} className="row-item">
                 <span>{c.name}</span>
                 <strong>{c.value}%</strong>
@@ -243,7 +277,8 @@ const Statistics = () => {
 
           <div className="card span-4">
             <h3 className="card-title">Key Achievements</h3>
-            {current.achievements.map((a: any, i: number) => (
+            {/* Fixed: Changed (a: any) to (a: Achievement) */}
+            {current.achievements.map((a: Achievement, i: number) => (
               <div key={i} className="row-item">
                 <span>{a.icon} {a.label}</span>
                 <strong>{a.value}</strong>
@@ -254,10 +289,11 @@ const Statistics = () => {
           <div className="card span-4">
             <h3 className="card-title">Impact Highlights</h3>
             <div className="impact-grid">
-              {current.impact.map((i: any, idx: number) => (
+              {/* Fixed: Changed (i: any) to (item: ImpactItem) to avoid name collision with index */}
+              {current.impact.map((item: ImpactItem, idx: number) => (
                 <div key={idx} className="impact-item">
-                  <div className="impact-value">{i.value}</div>
-                  <div>{i.label}</div>
+                  <div className="impact-value">{item.value}</div>
+                  <div>{item.label}</div>
                 </div>
               ))}
             </div>

@@ -8,7 +8,6 @@ interface SectionHeaderProps {
     className?: string;
     id?: string;
     align?: 'left' | 'center' | 'right';
-    noAnimation?: boolean;
 }
 
 const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -18,8 +17,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
     subtitle,
     className = "",
     id,
-    align = 'center',
-    noAnimation = false
+    align = 'center'
 }) => {
     return (
         <div className={`section-header-wrapper ${className}`} id={id}>

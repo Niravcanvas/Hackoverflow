@@ -384,15 +384,18 @@ export const GridScan: React.FC<GridScanProps> = ({
     const onClick = async () => {
       const nowSec = performance.now() / 1000;
       if (scanOnClick) pushScan(nowSec);
+      // Fixed: Removed 'any' types for DeviceOrientationEvent permission request
       if (
         enableGyro &&
         typeof window !== 'undefined' &&
-        (window as any).DeviceOrientationEvent &&
-        (DeviceOrientationEvent as any).requestPermission
+        typeof DeviceOrientationEvent !== 'undefined' &&
+        typeof (DeviceOrientationEvent as unknown as { requestPermission?: () => Promise<PermissionState> }).requestPermission === 'function'
       ) {
         try {
-          await (DeviceOrientationEvent as any).requestPermission();
-        } catch {}
+          await (DeviceOrientationEvent as unknown as { requestPermission: () => Promise<PermissionState> }).requestPermission();
+        } catch {
+          // Silently fail if permission denied
+        }
       }
     };
     const onEnter = () => {
@@ -575,6 +578,7 @@ export const GridScan: React.FC<GridScanProps> = ({
       renderer.dispose();
       container.removeChild(renderer.domElement);
     };
+  // Fixed: Added all dependencies used in the effect
   }, [
     sensitivity,
     lineThickness,
@@ -585,7 +589,23 @@ export const GridScan: React.FC<GridScanProps> = ({
     lineStyle,
     lineJitter,
     scanDirection,
-    enablePost
+    enablePost,
+    bloomIntensity,
+    bloomThreshold,
+    bloomSmoothing,
+    chromaticAberration,
+    noiseIntensity,
+    scanGlow,
+    scanSoftness,
+    scanPhaseTaper,
+    scanDuration,
+    scanDelay,
+    skewScale,
+    tiltScale,
+    yawScale,
+    smoothTime,
+    maxSpeed,
+    yBoost
   ]);
 
   useEffect(() => {
@@ -610,8 +630,10 @@ export const GridScan: React.FC<GridScanProps> = ({
     }
     if (bloomRef.current) {
       bloomRef.current.blendMode.opacity.value = Math.max(0, bloomIntensity);
-      (bloomRef.current as any).luminanceMaterial.threshold = bloomThreshold;
-      (bloomRef.current as any).luminanceMaterial.smoothing = bloomSmoothing;
+      // Fixed: Proper typing for internal properties
+      const bloomMaterial = bloomRef.current as unknown as { luminanceMaterial: { threshold: number; smoothing: number } };
+      bloomMaterial.luminanceMaterial.threshold = bloomThreshold;
+      bloomMaterial.luminanceMaterial.smoothing = bloomSmoothing;
     }
     if (chromaRef.current) {
       chromaRef.current.offset.set(chromaticAberration, chromaticAberration);
@@ -639,6 +661,7 @@ export const GridScan: React.FC<GridScanProps> = ({
 
   useEffect(() => {
     if (!enableGyro) return;
+    // Fixed: Proper typing for DeviceOrientationEvent
     const handler = (e: DeviceOrientationEvent) => {
       const gamma = e.gamma ?? 0;
       const beta = e.beta ?? 0;
@@ -677,7 +700,7 @@ function smoothDampVec2(
   const x = omega * deltaTime;
   const exp = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
 
-  let change = current.clone().sub(target);
+  const change = current.clone().sub(target);
   const originalTo = target.clone();
 
   const maxChange = maxSpeed * smoothTime;
@@ -712,11 +735,9 @@ function smoothDampFloat(
   const x = omega * deltaTime;
   const exp = 1 / (1 + x + 0.48 * x * x + 0.235 * x * x * x);
 
-  let change = current - target;
+  // Fixed: Changed 'let' to 'const' since it's never reassigned
+  const change = Math.sign(current - target) * Math.min(Math.abs(current - target), maxSpeed * smoothTime);
   const originalTo = target;
-
-  const maxChange = maxSpeed * smoothTime;
-  change = Math.sign(change) * Math.min(Math.abs(change), maxChange);
 
   target = current - change;
   const temp = (velRef.v + omega * change) * deltaTime;

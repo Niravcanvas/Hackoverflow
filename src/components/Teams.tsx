@@ -1,4 +1,5 @@
 import SectionHeader from "./SectionHeader";
+import Image from "next/image";
 import { Linkedin, Twitter, Github, Mail } from "lucide-react";
 
 interface TeamMember {
@@ -227,7 +228,13 @@ export default function Team() {
   const TeamCard = ({ member }: { member: TeamMember }) => (
     <div className="team-card">
       <div className="team-avatar">
-        <img src={member.image} alt={member.name} />
+        <Image 
+          src={member.image} 
+          alt={member.name}
+          width={120}
+          height={120}
+          className="team-avatar-img"
+        />
       </div>
       <h3 className="team-name">{member.name}</h3>
       <p className="team-role">{member.role}</p>
@@ -359,9 +366,9 @@ export default function Team() {
           margin-bottom: 1rem;
         }
 
-        .team-avatar img {
-          width: 110%;
-          height: 110%;
+        .team-avatar-img {
+          width: 100%;
+          height: 100%;
           object-fit: cover;
         }
 
@@ -418,7 +425,7 @@ export default function Team() {
         }
 
         @media (max-width: 768px) {
-          .principle-grid
+          .principle-grid,
           .faculty-grid,
           .leads-grid,
           .heads-grid {

@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navLinks = [
   { id: "hero", label: "Home" },
@@ -208,10 +209,13 @@ const Navbar = () => {
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="navbar-container">
           <div className="logo" onClick={() => scrollTo("hero")}>
-            <img
+            <Image
               src="/images/HO 4.0 Logo.svg"
               alt="HackOverflow Logo"
               className="logo-image"
+              width={64}
+              height={64}
+              priority
             />
           </div>
 
