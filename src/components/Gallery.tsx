@@ -414,7 +414,8 @@ const Gallery = () => {
         </div>
 
         <div className="year-info">
-          <div className="year-theme">"{current.theme}"</div>
+          {/* Fixed: Escaped quotes using curly braces to avoid unescaped entity errors */}
+          <div className="year-theme">{'"'}{current.theme}{'"'}</div>
 
           <div className="year-stats">
             <div>
@@ -439,7 +440,12 @@ const Gallery = () => {
                 .filter((m) => m.day === day)
                 .map((m) => (
                   <div key={m.id} className="immersive-card">
-                    <img src={m.image} className="immersive-image" />
+                    {/* Fixed: Added alt attribute for accessibility */}
+                    <img 
+                      src={m.image} 
+                      className="immersive-image" 
+                      alt={`${m.title} - ${m.desc}`}
+                    />
                     <div className="overlay">
                       <small style={{ color: m.color }}>{m.time}</small>
                       <h3>{m.title}</h3>

@@ -296,7 +296,8 @@ const Footer = () => {
           <h3>HackOverflow 4.0</h3>
           <p>
             HackOverflow 4.0 is a 3-day national level hackathon organized by PHCET.
-            It's a celebration of innovation, collaboration, and technology.
+            {/* Fixed: Escaped apostrophe using &apos; */}
+            It&apos;s a celebration of innovation, collaboration, and technology.
           </p>
           <div className="social-links">
             {socialLinks.map((link, index) => (
