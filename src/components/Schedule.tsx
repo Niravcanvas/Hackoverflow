@@ -11,6 +11,7 @@ type EventType =
   | "networking"
   | "judging"
   | "submission"
+  | "Banner" 
   | "end";
 
 interface ScheduleEvent {
@@ -28,28 +29,31 @@ const Schedule = () => {
   const scheduleData: Record<DayKey, ScheduleEvent[]> = {
     1: [
       { time: "11:00 AM", event: "Check In", icon: "🎫", type: "registration" },
-      { time: "1:00 PM", event: "Lunch", icon: "🍽️", type: "break" },
-      { time: "2:00 PM", event: "Orientation & Opening Ceremony", icon: "🎤", type: "ceremony" },
-      { time: "4:00 PM", event: "Lab Allotment", icon: "🏢", type: "setup" },
-      { time: "5:00 PM", event: "Hackathon Begins", icon: "🚀", type: "start" },
-      { time: "9:00 PM", event: "Dinner", icon: "🍴", type: "break" },
-      { time: "10:00 PM", event: "Networking", icon: "🤝", type: "networking" },
+      { time: "12:00 PM - 1:00 PM", event: "Lunch", icon: "🍽️", type: "break" },
+      { time: "1:00 PM - 2:00 PM", event: "Banner Reveal", icon: "📢 ", type: "Banner" },
+      { time: "2:00 PM - 4:00 PM", event: "Orientation & Opening Ceremony", icon: "🎤", type: "ceremony" },
+      { time: "4:00 PM - 5:00 PM", event: "Lab Allotment", icon: "🏢", type: "setup" },
+      { time: "5:00 PM - 8:00 PM", event: "Hackathon Begins", icon: "🚀", type: "start" },
+      { time: "8:00 PM - 9:00 PM", event: "Dinner", icon: "🍴", type: "break" },
+      { time: "9:00 PM Onwards", event: "Coding", icon: "💻", type: "coding" },
     ],
     2: [
-      { time: "8:00 AM", event: "Breakfast", icon: "☕", type: "break" },
-      { time: "9:00 AM", event: "Coding", icon: "💻", type: "coding" },
-      { time: "1:00 PM", event: "Lunch", icon: "🍽️", type: "break" },
-      { time: "2:00 PM", event: "Coding", icon: "💻", type: "coding" },
-      { time: "9:00 PM", event: "Dinner", icon: "🍴", type: "break" },
-      { time: "10:00 PM", event: "Jamming Session", icon: "🎶", type: "networking" },
+      { time: "8:00 AM - 9:00 AM", event: "Breakfast", icon: "☕", type: "break" },
+      { time: "9:00 AM - 1:00 PM", event: "Coding [ In between Judging Round 1 ]", icon: "💻", type: "coding" },
+      { time: "1:00 PM - 2:00 PM", event: "Lunch", icon: "🍽️", type: "break" },
+      { time: "2:00 PM - 6:00 PM", event: "Coding [ In between Judging Round 2 ]", icon: "💻", type: "coding" },
+      { time: "8:00 PM - 9:00 PM", event: "Dinner", icon: "🍴", type: "break" },
+      { time: "9:00 PM - 11:00 PM", event: "Networking & Jamming Session", icon: "🎶", type: "networking" },
+      { time: "11:00 PM - 7:00 AM", event: "Coding", icon: "💻", type: "coding" },
     ],
     3: [
-      { time: "7:00 AM", event: "Project Submission", icon: "📤", type: "submission" },
-      { time: "8:00 AM", event: "Breakfast", icon: "☕", type: "break" },
-      { time: "9:00 AM", event: "Judging", icon: "⚖️", type: "judging" },
-      { time: "1:00 PM", event: "Lunch", icon: "🍽️", type: "break" },
-      { time: "2:00 PM", event: "Winner Announcement", icon: "🏆", type: "ceremony" },
-      { time: "5:00 PM", event: "Check Out", icon: "👋", type: "end" },
+      { time: "7:00 AM - 8:00 AM", event: "Project & Code Submission", icon: "📤", type: "submission" },
+      { time: "8:00 AM - 9:00 AM", event: "Breakfast", icon: "☕", type: "break" },
+      { time: "9:00 AM - 11:00 PM", event: "Judging Round 3", icon: "⚖️", type: "judging" },
+      { time: "11:30 PM - 1:00 PM", event: "Lunch", icon: "🍽️", type: "break" },
+      { time: "1:00 PM - 2:00 PM", event: "Final Evaluation", icon: "🏆", type: "ceremony" },
+      { time: "2:00 PM - 3:00 PM", event: "Closing Ceremony", icon: "🎉", type: "ceremony" },
+      { time: "6:00 PM Onwards", event: "Check Out", icon: "👋", type: "end" },
     ],
   };
 
