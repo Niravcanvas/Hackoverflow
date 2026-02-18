@@ -6,11 +6,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { id: "hero", label: "Home", type: "scroll" },
+  { id: "home", label: "Home", type: "scroll" },
   { id: "gallery", label: "Gallery", type: "scroll" },
   { id: "stats", label: "Statistics", type: "scroll" },
   { id: "schedule", label: "Schedule", type: "scroll" },
-  { id: "sponsors", label: "Sponsors", type: "scroll" },
   { id: "teams", label: "Team", type: "scroll" },
   { id: "about", label: "About", type: "scroll" },
   { id: "/Events", label: "Events", type: "route" },

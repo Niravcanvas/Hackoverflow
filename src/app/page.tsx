@@ -17,7 +17,7 @@ import Hero from "@/components/Hero";
 export default function Home() {
   return (
     <>
-      <section id="hero">
+      <section id="home">
         <Hero />
       </section>
 
