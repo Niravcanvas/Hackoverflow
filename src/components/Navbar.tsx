@@ -1,44 +1,62 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
-  { id: "hero", label: "Home" },
-  { id: "gallery", label: "Gallery" },
-  { id: "stats", label: "Statistics" },
-  { id: "schedule", label: "Schedule" },
-  { id: "sponsors", label: "Sponsors" },
-  { id: "teams", label: "Team" },
-  { id: "about", label: "About" }
+  { id: "hero", label: "Home", type: "scroll" },
+  { id: "gallery", label: "Gallery", type: "scroll" },
+  { id: "stats", label: "Statistics", type: "scroll" },
+  { id: "schedule", label: "Schedule", type: "scroll" },
+  { id: "sponsors", label: "Sponsors", type: "scroll" },
+  { id: "teams", label: "Team", type: "scroll" },
+  { id: "about", label: "About", type: "scroll" },
+  { id: "/Events", label: "Events", type: "route" },
 ];
 
 const Navbar = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("hero");
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const onScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
       let current = "hero";
+
       navLinks.forEach((link) => {
+        if (link.type !== "scroll") return;
+
         const el = document.getElementById(link.id);
         if (!el) return;
+
         const rect = el.getBoundingClientRect();
         if (rect.top <= 150 && rect.bottom >= 150) {
           current = link.id;
         }
       });
+
       setActiveSection(current);
     };
 
     window.addEventListener("scroll", onScroll);
     onScroll();
+
     return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+  }, [pathname]);
 
   const scrollTo = (id: string) => {
+    if (pathname !== "/") {
+      window.location.href = `/#${id}`;
+      return;
+    }
+
     const el = document.getElementById(id);
     if (!el) return;
 
@@ -80,7 +98,6 @@ const Navbar = () => {
           justify-content: space-between;
         }
 
-
         .logo {
           display: flex;
           align-items: center;
@@ -98,20 +115,25 @@ const Navbar = () => {
           transform: scale(1.05);
         }
 
-        @media (max-width: 768px) {
-          .logo-image {
-            width: 48px;
-            height: 48px;
-          }
-        }
-
         .navbar-links {
           display: flex;
+          align-items: center;
           gap: 1rem;
           list-style: none;
+          margin: 0;
+          padding: 0;
         }
 
+        .navbar-links li {
+          display: flex;
+          align-items: center;
+        }
+
+        /* SAME styling for button and Link */
         .nav-link {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
           padding: 0.6rem 1.3rem;
           background: transparent;
           border: none;
@@ -119,8 +141,10 @@ const Navbar = () => {
           color: rgba(255,255,255,0.7);
           font-family: Poppins, sans-serif;
           font-weight: 600;
+          font-size: 0.95rem;
           position: relative;
           transition: 0.3s;
+          text-decoration: none;
         }
 
         .nav-link::after {
@@ -185,19 +209,11 @@ const Navbar = () => {
           display: block;
         }
 
-        .mobile-menu button {
+        .mobile-menu .nav-link {
+          display: block;
           width: 100%;
           padding: 1rem 2rem;
           text-align: left;
-          background: none;
-          border: none;
-          color: #ccc;
-          font-size: 1.1rem;
-          cursor: pointer;
-        }
-
-        .mobile-menu button.active {
-          color: #FCB216;
         }
 
         @media (max-width: 1024px) {
@@ -219,16 +235,29 @@ const Navbar = () => {
             />
           </div>
 
-
+          {/* Desktop */}
           <ul className="navbar-links">
             {navLinks.map((l) => (
               <li key={l.id}>
-                <button
-                  className={`nav-link ${activeSection === l.id ? "active" : ""}`}
-                  onClick={() => scrollTo(l.id)}
-                >
-                  {l.label}
-                </button>
+                {l.type === "scroll" ? (
+                  <button
+                    className={`nav-link ${pathname === "/" && activeSection === l.id
+                      ? "active"
+                      : ""
+                      }`}
+                    onClick={() => scrollTo(l.id)}
+                  >
+                    {l.label}
+                  </button>
+                ) : (
+                  <Link
+                    href={l.id}
+                    className={`nav-link ${pathname === l.id ? "active" : ""
+                      }`}
+                  >
+                    {l.label}
+                  </Link>
+                )}
               </li>
             ))}
           </ul>
@@ -243,23 +272,42 @@ const Navbar = () => {
             Brochure
           </a>
 
-          <button className="hamburger" onClick={() => setIsMobileOpen(!isMobileOpen)}>
+          <button
+            className="hamburger"
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+          >
             <span />
             <span />
             <span />
           </button>
         </div>
 
+        {/* Mobile */}
         <div className={`mobile-menu ${isMobileOpen ? "open" : ""}`}>
-          {navLinks.map((l) => (
-            <button
-              key={l.id}
-              className={activeSection === l.id ? "active" : ""}
-              onClick={() => scrollTo(l.id)}
-            >
-              {l.label}
-            </button>
-          ))}
+          {navLinks.map((l) =>
+            l.type === "scroll" ? (
+              <button
+                key={l.id}
+                className={`nav-link ${pathname === "/" && activeSection === l.id
+                  ? "active"
+                  : ""
+                  }`}
+                onClick={() => scrollTo(l.id)}
+              >
+                {l.label}
+              </button>
+            ) : (
+              <Link
+                key={l.id}
+                href={l.id}
+                className={`nav-link ${pathname === l.id ? "active" : ""
+                  }`}
+                onClick={() => setIsMobileOpen(false)}
+              >
+                {l.label}
+              </Link>
+            )
+          )}
         </div>
       </nav>
     </>
