@@ -254,7 +254,7 @@ const Events = () => {
 
                             <div className="mb-10">
                                 <h3 className="text-2xl font-semibold mb-6">
-                                    What You'll Learn
+                                    What You&apos;ll Learn
                                 </h3>
 
                                 <ul className="space-y-3 text-gray-300">
