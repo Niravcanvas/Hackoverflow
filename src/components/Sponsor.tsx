@@ -23,7 +23,7 @@ const SponsorUs: React.FC = () => {
     { id: 1, name: "aecc_global", image: "/images/Sponsors/aeccWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
      { id: 4, name: "IMFS", image: "/images/Sponsors/imfsWhite.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
     { id: 5, name: "Sumago", image: "/images/Sponsors/sumagoSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Platinum Sponsor" },
-    { id: 2, name: "osen", image: "/images/Sponsors/osen_demo.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
+    { id: 2, name: "osen", image: "/images/Sponsors/osenSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
     { id: 3, name: "imperial", image: "/images/Sponsors/imperialSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Our Sponsor" },
    
     { id: 6, name: "Upthrust", image: "/images/Sponsors/upthrustSponsor.png", link: "#", effect: "fade-up", SubSponsorcategory: "Gaming Partner" },
